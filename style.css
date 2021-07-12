@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    padding: 0%;
+}
+.header{
+ height: 100vh;
+ background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../images/AdobeStock_304300206.jpeg);
+ background-size: cover;
+ background-position: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color: rgb(30, 145, 145);
+    margin-bottom: 15px;
+    font-size: 50px;
+    letter-spacing: 1px;
+}
+p{
+    color:rgb(30, 145, 145);
+    font-size: 25px;
+    text-align: center;
+}
+.search-field{
+height: 15px;
+width: 100px;
+border: none;
+padding: 10px;
+border-radius: 5px;
+background-color: transparent;
+text-align: center;
+}
+.srch-btn{
+height: 25px;
+width: 150px;
+background-color: oldlace;
+border-radius: 25px;
+text-align: center;
+}
