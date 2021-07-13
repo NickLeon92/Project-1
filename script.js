@@ -1,8 +1,8 @@
 
 DRINK_API_URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
-const searchDrinksAPI = (drink_name) => {
-    api_query = DRINK_API_URL + drink_name
+const searchDrinksAPI = (drinkName) => {
+    api_query = DRINK_API_URL + drinkName
     fetch(api_query)
         .then(response => {
             console.log(response.status)
@@ -13,10 +13,29 @@ const searchDrinksAPI = (drink_name) => {
         }
         )
         .then(data => {
-            console.log(data.drinks[0])
+            // console.log("Hello")
+            let dataReturn = data.drinks;
+            let foo = dataReturn[0]
+
+            // console.log(data.drinks[0])
+            // alert(data.drinks)
+            let output = document.getElementById("output").innerHTML = JSON.stringify(data.drinks[0].strCategory)
+            return data.drinks
         })
 }
 
-document.getElementById("drinkInfo")
+// document.getElementById("drinkInfo")
 
-searchDrinksAPI("Margarita")
+// const singleDrink = (drinkName) => {
+//     let foo = searchDrinksAPI(drinkName);
+//     console.log(foo)
+//     // let output = document.getElementById("output").innerHTML = JSON.stringify(foo)
+// }
+
+// searchDrinksAPI("Margarita")
+
+
+// let myVar = searchDrinksAPI("Margarita")
+
+console.log(searchDrinksAPI("Margarita"))
+
