@@ -17,20 +17,20 @@ btn.addEventListener("click",()=>{
 
 
 
-  function getApi(url) {
-    fetch(url)
-      .then(function (response) {
-    
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        drinkNameVal = data.title
-        drinkDescripVal = data.extract
-        render()
-      });
-
-  }
+    function getApi(url) {
+      fetch(url)
+        .then(function (response) {
+      
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+          drinkNameVal = data.title
+          drinkDescripVal = data.extract
+          render()
+        });
+  
+    }
   
 
 function render(){
