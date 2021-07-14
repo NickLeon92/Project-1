@@ -4,7 +4,9 @@ body{
 }
 .header{
  height: 100vh;
+
  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,.1)),url(../images/AdobeStock_304300206.jpeg);
+
  background-size: cover;
  background-position: center;
  display: flex;
