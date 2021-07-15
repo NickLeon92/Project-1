@@ -27,8 +27,9 @@ p{
 }
 .search-field{
 height: 15px;
-width: 100px;
-border: none;
+width: 200px;
+border: olivedrab;
+border-style: solid;
 padding: 10px;
 border-radius: 5px;
 background-color: transparent;
@@ -36,15 +37,16 @@ text-align: center;
 margin-top: 15%;
 }
 .srch-btn{
-height: 25px;
-width: 150px;
+height: 35px;
+width: 215px;
 background-color: oldlace;
 border-radius: 25px;
-text-align: center;
+justify-content: center;
 }
 button.srch-btn{
     margin-top: 88px;
     text-align: center;
+    justify-content: center;
 }
 input.search-field{
     text-decoration-color: aliceblue;
@@ -53,4 +55,5 @@ input.search-field{
 div.form-box{
     display: block;
     text-align: center;
+    justify-content: center;
 }
