@@ -2,6 +2,7 @@
 //let requestUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=margarita&origin=*" 
 DRINK_API_URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 let description = document.getElementById("description")
+let output = document.getElementById("output")
 let search = document.getElementById("searchtext")
 let btn = document.getElementById("btn")
 let drinkNameVal;
@@ -9,7 +10,9 @@ let drinkDescripVal;
 let inputText;
 let requestUrl
 
+
 const searchSingleDrink = (drinkName) => {
+    console.log("drink api start")
     api_query = DRINK_API_URL + drinkName
     fetch(api_query)
         .then(response => {
@@ -42,12 +45,18 @@ const searchSingleDrink = (drinkName) => {
                 glassType : dataReturn.strGlass,
                 instructions: dataReturn.strInstructions,
                 thumbnail: dataReturn.strDrinkThumb,
-                directions: [combinedIngredients]
+                //directions: [combinedIngredients],
+                ingredients: combinedIngredients
                 // amount: [...alcohol_amount_data]
 
             }
+            console.log(combinedIngredients)
+            renderIngredients(drinkDetails)
 
-            return document.getElementById("output").innerHTML = JSON.stringify(drinkDetails)
+            
+
+
+           // return document.getElementById("output").innerHTML = JSON.stringify(drinkDetails)
         })
 }
 
@@ -55,7 +64,7 @@ btn.addEventListener("click",()=>{
     inputText = search.value
     console.log(inputText)
     requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
-    getApi(requestUrl)}
+    getApi(requestUrl)},
     )
 
 
@@ -87,4 +96,38 @@ function render(){
 
     description.appendChild(drinkName)
     description.appendChild(drinkDescrip)
+
+    console.log(search.value)
+    searchSingleDrink(search.value)
+}
+
+function renderIngredients(drinkDetails){
+    output.innerHTML = ""
+    console.log("render ingrdients start")
+
+    ingHeader = document.createElement("h1")
+    output.appendChild(ingHeader)
+    ingHeader.textContent = "Ingredients:"
+
+    ingList = document.createElement("ul")
+    output.appendChild(ingList)
+
+
+    output.appendChild(ingList)
+
+    for (i=0; i<drinkDetails.ingredients.length; i++){
+        let listEl = document.createElement("li")
+        output.appendChild(listEl)
+        listEl.textContent = drinkDetails.ingredients[i]
+    }
+
+    ingDirections = document.createElement("p")
+    output.appendChild(ingDirections)
+    ingDirections.textContent = drinkDetails.instructions
+
+    Pic = document.getElementById("pic")
+    Pic.setAttribute("src",drinkDetails.thumbnail)
+    // output.appendChild(ingPic)
+    // ingPic.setAttribute("")
+
 }
