@@ -1,3 +1,4 @@
+
 body{
     margin: 0;
     padding: 0%;
@@ -27,8 +28,9 @@ p{
 }
 .search-field{
 height: 15px;
-width: 100px;
-border: none;
+width: 175px;
+border-color: olivedrab;
+border-style: solid;
 padding: 10px;
 border-radius: 5px;
 background-color: transparent;
@@ -37,7 +39,7 @@ margin-top: 15%;
 }
 .srch-btn{
 height: 25px;
-width: 150px;
+width: 220px;
 background-color: oldlace;
 border-radius: 25px;
 text-align: center;
@@ -48,7 +50,7 @@ button.srch-btn{
 }
 input.search-field{
     text-decoration-color: aliceblue;
-    color:white
+    color:whitesmoke;
 }
 div.form-box{
     display: block;
