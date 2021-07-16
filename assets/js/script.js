@@ -45,7 +45,7 @@ const searchSingleDrink = (drinkName) => {
                 glassType : dataReturn.strGlass,
                 instructions: dataReturn.strInstructions,
                 thumbnail: dataReturn.strDrinkThumb,
-                directions: [combinedIngredients],
+                //directions: [combinedIngredients],
                 ingredients: combinedIngredients
                 // amount: [...alcohol_amount_data]
 
