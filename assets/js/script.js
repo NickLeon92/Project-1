@@ -11,6 +11,8 @@ let drinkDescripVal;
 let inputText;
 let requestUrl
 let call = false
+
+
 const searchRandomDrink = () => {
     api_query = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
     fetch(api_query)
@@ -110,6 +112,8 @@ btn2.addEventListener("click",()=>{
     //getApi(requestUrl)
 },
         )
+
+
   function getApi(url) {
     fetch(url)
       .then(function (response) {
@@ -126,10 +130,9 @@ btn2.addEventListener("click",()=>{
         }
         render()
       });
-
  
   }
-
+  
 function render(){
     description.innerHTML = ""
     drinkName = document.createElement("h1")
@@ -152,9 +155,13 @@ function renderIngredients(drinkDetails){
     ingHeader = document.createElement("h1")
     output.appendChild(ingHeader)
     ingHeader.textContent = "Ingredients:"
+
     ingList = document.createElement("ul")
     output.appendChild(ingList)
+
+
     output.appendChild(ingList)
+
     for (i=0; i<drinkDetails.ingredients.length; i++){
         let listEl = document.createElement("li")
         output.appendChild(listEl)
@@ -164,8 +171,7 @@ function renderIngredients(drinkDetails){
     output.appendChild(ingDirections)
     ingDirections.textContent = drinkDetails.instructions
 
-    Pic = document.getElementById("pic")
     Pic = document.createElement("img")
     imgsection.appendChild(Pic)
     Pic.setAttribute("src",drinkDetails.thumbnail)
-} 
+}
