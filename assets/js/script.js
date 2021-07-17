@@ -40,7 +40,6 @@ const searchRandomDrink = () => {
                     alcohol_amount_data.push(data.drinks[0][ingredients])
                 }
             }
-
             let combinedIngredients = alcohol_data.map((x, i) => [x, alcohol_amount_data[i]])
             const drinkDetails = {
                 name : dataReturn.strDrink,
@@ -48,7 +47,6 @@ const searchRandomDrink = () => {
                 instructions: dataReturn.strInstructions,
                 thumbnail: dataReturn.strDrinkThumb,
                 ingredients: combinedIngredients
-
             }
             call =true
             renderIngredients(drinkDetails)
@@ -58,7 +56,6 @@ const searchRandomDrink = () => {
             getApi(requestUrl)
         })
 }
-
 const searchSingleDrink = (drinkName) => {
     console.log("drink api start")
     api_query = DRINK_API_URL + drinkName
@@ -86,7 +83,6 @@ const searchSingleDrink = (drinkName) => {
                     alcohol_amount_data.push(data.drinks[0][ingredients])
                 }
             }
-
             let combinedIngredients = alcohol_data.map((x, i) => [x, alcohol_amount_data[i]])
             const drinkDetails = {
                 name : dataReturn.strDrink,
@@ -96,13 +92,11 @@ const searchSingleDrink = (drinkName) => {
                 //directions: [combinedIngredients],
                 ingredients: combinedIngredients
                 // amount: [...alcohol_amount_data]
-
             }
             console.log(combinedIngredients)
             renderIngredients(drinkDetails)
         })
 }
-
 btn.addEventListener("click",()=>{
     call = false
     inputText = search.value
@@ -110,7 +104,6 @@ btn.addEventListener("click",()=>{
     requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
     getApi(requestUrl)},
     )
-
 btn2.addEventListener("click",()=>{
     searchRandomDrink()
     //inputText = search.value
@@ -142,16 +135,12 @@ btn2.addEventListener("click",()=>{
   
 function render(){
     description.innerHTML = ""
-
     drinkName = document.createElement("h1")
     drinkDescrip = document.createElement("p")
-
     drinkName.textContent = drinkNameVal
     drinkDescrip.textContent = drinkDescripVal
-
     description.appendChild(drinkName)
     description.appendChild(drinkDescrip)
-
     console.log(search.value)
     if (!call){
     searchSingleDrink(search.value)
@@ -178,7 +167,6 @@ function renderIngredients(drinkDetails){
         output.appendChild(listEl)
         listEl.textContent = drinkDetails.ingredients[i]
     }
-
     ingDirections = document.createElement("p")
     output.appendChild(ingDirections)
     ingDirections.textContent = drinkDetails.instructions
