@@ -6,6 +6,7 @@ let search = document.getElementById("searchtext")
 let btn = document.getElementById("btn")
 let btn2 = document.getElementById("btn2")
 let drinkNameVal;
+let backupname
 let drinkDescripVal;
 let inputText;
 let requestUrl
@@ -52,6 +53,7 @@ const searchRandomDrink = () => {
             call =true
             renderIngredients(drinkDetails)
             console.log(drinkDetails)
+            backupname = drinkDetails.name
             requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ drinkDetails.name
             getApi(requestUrl)
         })
@@ -129,6 +131,10 @@ btn2.addEventListener("click",()=>{
         console.log(data);
         drinkNameVal = data.title
         drinkDescripVal = data.extract
+        if(data.title==="Not found."){
+            drinkNameVal = backupname
+            drinkDescripVal = "No entry found :("
+        }
         render()
       });
 
