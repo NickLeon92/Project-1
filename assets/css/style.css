@@ -9,6 +9,7 @@ body{
 
  background-size: cover;
  background-position: center;
+ text-align: center;
 
  /* display: flex; */
  justify-content: center;
@@ -25,26 +26,27 @@ h1{
 p{
     color:rgb(103, 184, 184);
 
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     margin-left: 50px;
     margin-right: 50px;
 }
 .search-field{
-height: 15px;
-width: 100px;
+
+width: 300px;
 border: none;
 padding: 10px;
 border-radius: 5px;
-background-color: transparent;
+margin: auto;
 text-align: center;
 margin-top: 1%;
 }
 .srch-btn{
-height: 25px;
+
 width: 150px;
 background-color: oldlace;
 border-radius: 25px;
+margin: auto;
 text-align: center;
 }
 button.srch-btn{
@@ -53,8 +55,8 @@ button.srch-btn{
 }
 input.search-field{
     text-decoration-color: aliceblue;
-    color:white
-}
+    color:rgb(103, 184, 184)}
+
 div.form-box{
     display: block;
     text-align: center;
@@ -86,4 +88,22 @@ li{
 
 img {
     width: 500px;
+}
+
+#btn{
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font: bold;
+    font-size: 25px;
+}
+
+#btn2{
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font: bold;
+    font-size: 25px;
 }
