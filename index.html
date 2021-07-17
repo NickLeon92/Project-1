@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation Starter Template</title>
+    <title>Lets Drink: A search engine for drinks.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets\css\style.css">
 
@@ -12,29 +12,17 @@
   <body>
     <div class="header">
     <form>
-        <h1>Search, Learn, Sip</h1>
+        <h1 id="title">Search, Learn, Sip</h1>
   <h2 class="subheader">Your Cocktail Search-Engine</h2>
   <div class="form-box">
     <input id = "searchtext" type="text" class="search-field"
     placeholder="Enter Cocktail">
 
     <div class="row">
-        <button id = "btn" class="button hollow srch-btn" type="butgitton">Lets drink</button>
-        <button id = "btn2" class=" button hollow srch-btn" type="button">Randomize!</button>
+        <button id = "btn" class="button hollow srch-btn" type="button">Lets Drink!</button>
+        <button id = "btn2" class="button hollow srch-btn" type="button">Randomize!</button>
     </form>
 </div>
-<!--<div class="row" id="results"> 
-    <div class="columns large-8">
-        <section id = "description"></section>
-
-    </div>
-    <div class="columns large-4" >
-        <img id = "pic" alt="derp">
-        <section id = "output"></section>
-    </div>
-
-</div>-->
-<br>
 <br>
 <div id = results>
 
@@ -42,13 +30,14 @@
     
     </section>
 
-    <img id = "pic" alt="derp">
+    <div id = imgsection></div>
     
     <section id = "output">
     
     </section>
     
-    </div> -->
+    </div>
+
 
     <script src = "./assets\js\script.js"></script>
     <!-- <script>
@@ -56,6 +45,7 @@
     </script> -->
   </body>
 </html>
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">

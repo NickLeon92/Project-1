@@ -1,58 +1,121 @@
-
 body{
     margin: 0;
     padding: 0%;
 }
+#title{
+    color: rgb(9, 99, 99);
+    /* margin-top: 20px; */
+    font-size: 45px;
+    letter-spacing: 1px;
+    text-align: center; 
+    border-bottom: none; 
+}
 .header{
  height: 100vh;
-
  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,.1)),url(../../assets/images/AdobeStock_304300206.jpeg);
-
  background-size: cover;
  background-position: center;
- display: flex;
+ text-align: center;
+
+ /* display: flex; */
  justify-content: center;
  align-items: center;
  font-family: Arial, Helvetica, sans-serif;
 }
 h1{
-    color: rgb(9, 99, 99);
-    margin-top: 20px;
-    font-size: 50px;
+    color: lightgoldenrodyellow;
+    /* margin-top: 20px; */
+    font-size: 45px;
     letter-spacing: 1px;
+    text-align: center;
+    border-bottom: solid paleturquoise;
 }
 p{
-    color:rgb(103, 184, 184);
-    font-size: 25px;
+    color:powderblue;
+    font-size: 20px;
     text-align: center;
+    margin-left: 45px;
+    margin-right: 45px;
 }
 .search-field{
-height: 15px;
-width: 175px;
-border-color: olivedrab;
-border-style: solid;
+width: 300px;
+border: none;
 padding: 10px;
 border-radius: 5px;
-background-color: transparent;
+margin: auto;
 text-align: center;
-margin-top: 15%;
+margin-top: 1%;
 }
-.srch-btn{
-height: 25px;
-width: 220px;
+ .srch-btn{
+width: 150px;
 background-color: oldlace;
 border-radius: 25px;
-text-align: center;
+margin: auto;
+text-align: center; 
 }
 button.srch-btn{
-    margin-top: 88px;
+    margin-top: 80px;
     text-align: center;
 }
 input.search-field{
     text-decoration-color: aliceblue;
-    color:whitesmoke;
-}
+    color:black}
+
 div.form-box{
     display: block;
     text-align: center;
 }
+
+#results{
+    display: flex;
+    justify-content: space-around;
+}
+
+#output{
+    width: 500px;
+    background-color:transparent;
+    text-align: center;
+    color: rgb(103, 184, 184);
+}
+
+li{
+    color: powderblue;
+    font-size: 20px;
+
+}
+
+#description{
+    width: 500px;
+    background-color:transparent;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+    border: solid rgb(9, 99, 99);
+    
+}
+
+ #btn{
+    width: 600px;
+    /* margin: auto; */
+    /* margin-top: 20px; */
+    /* margin-bottom: 10px; */
+    font: bold;
+    font-size: 25px;
+    color: powderblue;
+    border-radius: 5px;
+    border-color:#1779ba;
+} 
+
+#btn2{
+    width: 600px;
+    /* margin: auto; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 50px; */
+    font: bold;
+    color: powderblue;
+    font-size: 25px;
+    border-radius: 5px;
+    border-color:#1779ba;
+} 
