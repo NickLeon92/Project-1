@@ -93,7 +93,16 @@ img {
 #btn{
     width: 200px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font: bold;
+    font-size: 25px;
+}
+
+#btn2{
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
     margin-bottom: 50px;
     font: bold;
     font-size: 25px;

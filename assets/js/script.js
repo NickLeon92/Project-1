@@ -3,10 +3,12 @@ let description = document.getElementById("description")
 let output = document.getElementById("output")
 let search = document.getElementById("searchtext")
 let btn = document.getElementById("btn")
+let btn2 = document.getElementById("btn2")
 let drinkNameVal;
 let drinkDescripVal;
 let inputText;
 let requestUrl
+let call = false
 
 
 const searchRandomDrink = () => {
@@ -20,7 +22,8 @@ const searchRandomDrink = () => {
             }
         )
         .then(data => {
-            let dataReturn = data.drinks;
+            let dataReturn = data.drinks[0];
+            console.log(dataReturn)
             let alcohol_data = []
             for (let i = 1 ; i < 16; i++) {
                 ingredient = "strIngredient" + i;
@@ -45,6 +48,11 @@ const searchRandomDrink = () => {
                 ingredients: combinedIngredients
 
             }
+            call =true
+            renderIngredients(drinkDetails)
+            console.log(drinkDetails)
+            requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ drinkDetails.name
+            getApi(requestUrl)
         })
 }
 
@@ -93,11 +101,22 @@ const searchSingleDrink = (drinkName) => {
 }
 
 btn.addEventListener("click",()=>{
+    call = false
     inputText = search.value
     console.log(inputText)
     requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
     getApi(requestUrl)},
     )
+
+btn2.addEventListener("click",()=>{
+    searchRandomDrink()
+    //inputText = search.value
+    //console.log(inputText)
+    //requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
+    //getApi(requestUrl)
+},
+        )
+
 
   function getApi(url) {
     fetch(url)
@@ -127,7 +146,9 @@ function render(){
     description.appendChild(drinkDescrip)
 
     console.log(search.value)
+    if (!call){
     searchSingleDrink(search.value)
+    }
 }
 
 function renderIngredients(drinkDetails){
