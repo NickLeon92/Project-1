@@ -1,9 +1,9 @@
 # Lets Drink ! 🥂🍷🍸🍹🍾
 ## An app for drinkers
-![appScreenShot](./assets/images/screenShot.png)  
+![appScreenShot](./assets/images/demo.jpg)  
 <br></br>
 
-##### Access the app [HERE](https://URL_TBD)
+##### Access the app [HERE](https://nickleon92.github.io/Project-1/)
 
 #### Let's drink will allow the user to ...
 
