@@ -12,21 +12,20 @@ let inputText;
 let requestUrl
 let call = false
 
-
+//this function fetches an endpoint for a random drink
 const searchRandomDrink = () => {
     api_query = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
     fetch(api_query)
         .then(response => {
                 if (response.status !== 200) {
-                    // console(response.status)
                 }
                 return response.json()
             }
         )
         .then(data => {
             let dataReturn = data.drinks[0];
-            console.log(dataReturn)
             let alcohol_data = []
+            //this loop builds an array for the ingredients
             for (let i = 1 ; i < 16; i++) {
                 ingredient = "strIngredient" + i;
                 if(data.drinks[0][ingredient]){
@@ -34,13 +33,16 @@ const searchRandomDrink = () => {
                 }
             }
             let alcohol_amount_data = []
+            //this loop builds an array for the measurements
             for (let i = 1 ; i < 16; i++) {
                 ingredients = "strMeasure" + i;
                 if(data.drinks[0][ingredients]){
                     alcohol_amount_data.push(data.drinks[0][ingredients])
                 }
             }
+            //compiles ingredients into matrix
             let combinedIngredients = alcohol_data.map((x, i) => [x, alcohol_amount_data[i]])
+            //builds and object with desired properties for output
             const drinkDetails = {
                 name : dataReturn.strDrink,
                 glassType : dataReturn.strGlass,
@@ -48,21 +50,24 @@ const searchRandomDrink = () => {
                 thumbnail: dataReturn.strDrinkThumb,
                 ingredients: combinedIngredients
             }
+            //call boolean indicates whether search url for wiki comes from input text or randomized drink
             call =true
+            //calls function to render ingredients using local drink details
             renderIngredients(drinkDetails)
-            console.log(drinkDetails)
             backupname = drinkDetails.name
             requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ drinkDetails.name
+            //calls wiki search function using locally generated search url
             getApi(requestUrl)
         })
 }
+
+//function for searching cocktail api based on input search text
+//functionally the same to above function
 const searchSingleDrink = (drinkName) => {
-    console.log("drink api start")
     api_query = DRINK_API_URL + drinkName
     fetch(api_query)
         .then(response => {
                 if (response.status !== 200) {
-                    // console(response.status)
                 }
                 return response.json()
             }
@@ -89,31 +94,27 @@ const searchSingleDrink = (drinkName) => {
                 glassType : dataReturn.strGlass,
                 instructions: dataReturn.strInstructions,
                 thumbnail: dataReturn.strDrinkThumb,
-                //directions: [combinedIngredients],
                 ingredients: combinedIngredients
-                // amount: [...alcohol_amount_data]
             }
-            console.log(combinedIngredients)
             renderIngredients(drinkDetails)
         })
 }
+
+//event listener for search button
 btn.addEventListener("click",()=>{
     call = false
     inputText = search.value
-    console.log(inputText)
     requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
     getApi(requestUrl)},
     )
+
+//event listener for randomizer search
 btn2.addEventListener("click",()=>{
     searchRandomDrink()
-    //inputText = search.value
-    //console.log(inputText)
-    //requestUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/"+ inputText
-    //getApi(requestUrl)
 },
         )
 
-
+//this function calls the wiki search
   function getApi(url) {
     fetch(url)
       .then(function (response) {
@@ -121,9 +122,9 @@ btn2.addEventListener("click",()=>{
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         drinkNameVal = data.title
         drinkDescripVal = data.extract
+        //error catch
         if(data.title==="Not found."){
             drinkNameVal = backupname
             drinkDescripVal = "No entry found :("
@@ -132,7 +133,8 @@ btn2.addEventListener("click",()=>{
       });
  
   }
-  
+
+//renders summary elements
 function render(){
     description.innerHTML = ""
     drinkName = document.createElement("h1")
@@ -141,16 +143,16 @@ function render(){
     drinkDescrip.textContent = drinkDescripVal
     description.appendChild(drinkName)
     description.appendChild(drinkDescrip)
-    console.log(search.value)
+    //if it's a search bar query, calls function to fetch drink details
     if (!call){
     searchSingleDrink(search.value)
     }
 }
 
+//function to render elemetns for ingredients section
 function renderIngredients(drinkDetails){
     output.innerHTML = ""
     imgsection.innerHTML = ""
-    console.log("render ingrdients start")
 
     ingHeader = document.createElement("h1")
     output.appendChild(ingHeader)
